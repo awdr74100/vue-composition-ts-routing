@@ -30,6 +30,14 @@ const router = createRouter({
       ],
     },
     {
+      path: '/product/:id',
+      name: 'product',
+      component: () => import('@/views/ProductView.vue'),
+      // props: true,
+      // props: { title: 'Bang Bang Bang' },
+      props: (route) => ({ id: route.params.id + 'z', title: 'Bang Bone' }),
+    },
+    {
       path: '/:pathMatch(.*)*',
       redirect: '/',
     },
