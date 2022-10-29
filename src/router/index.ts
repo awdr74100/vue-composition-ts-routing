@@ -38,6 +38,12 @@ const router = createRouter({
       props: (route) => ({ id: route.params.id + 'z', title: 'Bang Bone' }),
     },
     {
+      path: '/admin',
+      name: 'admin',
+      meta: { requiresAuth: true, role: 'admin' },
+      component: () => import('@/views/AdminView.vue'),
+    },
+    {
       path: '/:pathMatch(.*)*',
       redirect: '/',
     },
